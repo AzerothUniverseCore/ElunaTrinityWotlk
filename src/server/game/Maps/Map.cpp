@@ -20,6 +20,7 @@
 #include "CellImpl.h"
 #include "Config.h"
 #include "Chat.h"
+#include "Config.h"
 #include "DatabaseEnv.h"
 #include "DisableMgr.h"
 #include "DynamicTree.h"
@@ -4333,7 +4334,9 @@ bool InstanceMap::HasPermBoundPlayers() const
 uint32 InstanceMap::GetMaxPlayers() const
 {
     MapDifficulty const* mapDiff = GetMapDifficulty();
-    if (mapDiff && mapDiff->maxPlayers)
+    if (mapDiff && mapDiff->maxPlayers && (sConfigMgr->GetBoolDefault("AutoBalance.enable", true)))
+        return (mapDiff->maxPlayers == 10 ? 30 : mapDiff->maxPlayers);
+    else
         return mapDiff->maxPlayers;
 
     return GetEntry()->MaxPlayers;
@@ -4802,9 +4805,9 @@ void Map::SetZoneMusic(uint32 zoneId, uint32 musicId)
 {
     _zoneDynamicInfo[zoneId].MusicId = musicId;
 
-    WorldPackets::Misc::PlayMusic playMusic(musicId);
+        WorldPackets::Misc::PlayMusic playMusic(musicId);
     SendZoneMessage(zoneId, WorldPackets::Misc::PlayMusic(musicId).Write());
-}
+    }
 
 Weather* Map::GetOrGenerateZoneDefaultWeather(uint32 zoneId)
 {
@@ -4830,7 +4833,7 @@ void Map::SetZoneWeather(uint32 zoneId, WeatherState weatherId, float intensity)
     info.Intensity = intensity;
 
     SendZoneMessage(zoneId, WorldPackets::Misc::Weather(weatherId, intensity).Write());
-}
+    }
 
 void Map::SetZoneOverrideLight(uint32 zoneId, uint32 areaLightId, uint32 overrideLightId, Milliseconds transitionTime)
 {
@@ -4850,12 +4853,12 @@ void Map::SetZoneOverrideLight(uint32 zoneId, uint32 areaLightId, uint32 overrid
         lightOverride.TransitionMilliseconds = static_cast<uint32>(transitionTime.count());
     }
 
-    WorldPackets::Misc::OverrideLight overrideLight;
-    overrideLight.AreaLightID = areaLightId;
-    overrideLight.OverrideLightID = overrideLightId;
-    overrideLight.TransitionMilliseconds = static_cast<uint32>(transitionTime.count());
+        WorldPackets::Misc::OverrideLight overrideLight;
+        overrideLight.AreaLightID = areaLightId;
+        overrideLight.OverrideLightID = overrideLightId;
+        overrideLight.TransitionMilliseconds = static_cast<uint32>(transitionTime.count());
     SendZoneMessage(zoneId, overrideLight.Write());
-}
+    }
 
 void Map::UpdateAreaDependentAuras()
 {

@@ -83,42 +83,73 @@ enum Gender
 // EnumUtils: DESCRIBE THIS
 enum Races
 {
-    RACE_NONE               = 0,  // SKIP
-    RACE_HUMAN              = 1,  // TITLE Human
-    RACE_ORC                = 2,  // TITLE Orc
-    RACE_DWARF              = 3,  // TITLE Dwarf
-    RACE_NIGHTELF           = 4,  // TITLE Night Elf
-    RACE_UNDEAD_PLAYER      = 5,  // TITLE Undead
-    RACE_TAUREN             = 6,  // TITLE Tauren
-    RACE_GNOME              = 7,  // TITLE Gnome
-    RACE_TROLL              = 8,  // TITLE Troll
-    //RACE_GOBLIN             = 9,
-    RACE_BLOODELF           = 10, // TITLE Blood Elf
-    RACE_DRAENEI            = 11 //, TITLE Draenei
-    //RACE_FEL_ORC            = 12,
-    //RACE_NAGA               = 13,
-    //RACE_BROKEN             = 14,
-    //RACE_SKELETON           = 15,
-    //RACE_VRYKUL             = 16,
-    //RACE_TUSKARR            = 17,
-    //RACE_FOREST_TROLL       = 18,
-    //RACE_TAUNKA             = 19,
-    //RACE_NORTHREND_SKELETON = 20,
-    //RACE_ICE_TROLL          = 21
+    RACE_NONE = 0, 		     			// SKIP
+    RACE_HUMAN = 1,          			// TITLE Human Alliance
+    RACE_ORC = 2,		     			// TITLE Orc Horde
+    RACE_DWARF = 3,          			// TITLE Dwarf Alliance
+    RACE_NIGHTELF = 4,       			// TITLE Night Elf Alliance
+    RACE_UNDEAD_PLAYER = 5,  			// TITLE Undead Horde
+    RACE_TAUREN = 6,					// TITLE Tauren Horde
+    RACE_GNOME = 7,						// TITLE Gnome Alliance
+    RACE_TROLL = 8,						// TITLE Troll Horde
+    RACE_GOBLIN_ = 9,					// TITLE Goblin Horde
+    RACE_BLOODELF = 10,					// TITLE Blood Elf Horde
+    RACE_DRAENEI = 11,					// TITLE Draenei Alliance
+    RACE_WORGEN = 12,					// TITLE Worgen Alliance
+    RACE_PANDAREN_HORDE = 13,			// TITLE Pandaren Horde
+    RACE_PANDAREN_ALLIANCE = 14,		// TITLE Pandaren Alliance
+    RACE_BLOODELF_ILLIDARI = 15,		// TITLE Blood Elf Illidari Horde
+    RACE_NIGHTELF_ILLIDARI = 16,		// TITLE Night Elf Illidari Alliance
+    RACE_EREDAR = 17,					// TITLE Eredar Horde
+    RACE_VOIDELF = 18,					// TITLE Void Elf Alliance
+    RACE_VULPERA = 19,					// TITLE Vulpera Horde
+    RACE_NIGHTBORNE = 20,				// TITLE Nightborne Horde
+	RACE_LIGHTFORGED_DRAENEI = 21,		// TITLE Lightforged Draenei Alliance
+    RACE_ZANDALARI_TROLL = 22,		    // TITLE Zandalari Troll Horde
+    RACE_DARK_IRON_DWARF = 23,		    // TITLE Dark Iron Dwarf Alliance
+    RACE_DARK_IRON_DWARF_H = 24,		// TITLE Dark Iron Dwarf Horde
+    RACE_HIGHELF = 25,		     		// TITLE High Elf Alliance
+    RACE_HIGHMOUNTAINTAUREN = 26,		// TITLE High Mountain Tauren Horde
+    RACE_VULPERA_A = 27,		     	// TITLE Vulpera Alliance
+    RACE_DRACTHYR_H = 28,		     	// TITLE Dracthyr Horde
+    RACE_DRACTHYR_A = 29,		     	// TITLE Dracthyr Alliance
+    RACE_MAGHAR = 30,		     	    // TITLE Orc Mag'har Horde
+    RACE_KULTIRAN = 31		     	    // TITLE Kultiran Alliance
+    //RACE_SKELETON = 32,
+    //RACE_VRYKUL = 33,
+    //RACE_TUSKARR = 34,
+    //RACE_FOREST_TROLL = 35,
+    //RACE_TAUNKA = 36,
+    //RACE_NORTHREND_SKELETON = 37,
+    //RACE_ICE_TROLL = 38,
+    //RACE_FEL_ORC = 39,
+    //RACE_NAGA = 40,
+    //RACE_BROKEN = 41,
+    //RACE_GOBLIN = 42
 };
 
 // max+1 for player race
-#define MAX_RACES         12
+#define MAX_RACES         32
 
 #define RACEMASK_ALL_PLAYABLE \
     ((1<<(RACE_HUMAN-1))   |(1<<(RACE_ORC-1))          |(1<<(RACE_DWARF-1))   | \
-     (1<<(RACE_NIGHTELF-1))|(1<<(RACE_UNDEAD_PLAYER-1))|(1<<(RACE_TAUREN-1))  | \
-     (1<<(RACE_GNOME-1))   |(1<<(RACE_TROLL-1))        |(1<<(RACE_BLOODELF-1))| \
-     (1<<(RACE_DRAENEI-1)))
+    (1<<(RACE_NIGHTELF-1))|(1<<(RACE_UNDEAD_PLAYER-1))|(1<<(RACE_TAUREN-1))  | \
+    (1<<(RACE_GNOME-1))   |(1<<(RACE_TROLL-1))        |(1<<(RACE_BLOODELF-1))| \
+    (1<<(RACE_DRAENEI-1)) |(1<<(RACE_GOBLIN_-1))       |(1<<(RACE_WORGEN-1)) | \
+    (1<<(RACE_PANDAREN_HORDE-1)) | (1<<(RACE_PANDAREN_ALLIANCE-1)) | (1<<(RACE_BLOODELF_ILLIDARI-1)) | \
+	(1<<(RACE_NIGHTELF_ILLIDARI-1)) | (1<<(RACE_EREDAR-1)) | (1<<(RACE_VOIDELF-1)) | \
+    (1<<(RACE_VULPERA-1)) | (1<<(RACE_NIGHTBORNE-1)) | (1<<(RACE_LIGHTFORGED_DRAENEI-1)) | \
+    (1<<(RACE_ZANDALARI_TROLL-1)) | (1<<(RACE_DARK_IRON_DWARF_H-1)) | (1<<(RACE_DARK_IRON_DWARF-1)) | \
+	(1<<(RACE_HIGHELF-1)) | (1<<(RACE_HIGHMOUNTAINTAUREN-1)) | (1<<(RACE_VULPERA_A-1)) | \
+	(1<<(RACE_DRACTHYR_H-1)) | (1<<(RACE_DRACTHYR_A-1)) | (1<<(RACE_MAGHAR-1)) | \
+	(1<<(RACE_KULTIRAN-1)))
 
 #define RACEMASK_ALLIANCE \
     ((1<<(RACE_HUMAN-1)) | (1<<(RACE_DWARF-1)) | (1<<(RACE_NIGHTELF-1)) | \
-     (1<<(RACE_GNOME-1)) | (1<<(RACE_DRAENEI-1)))
+    (1<<(RACE_GNOME-1)) | (1<<(RACE_DRAENEI-1)) | (1<<(RACE_WORGEN-1)) | \
+    (1<<(RACE_PANDAREN_ALLIANCE-1)) | (1<<(RACE_NIGHTELF_ILLIDARI-1)) | (1<<(RACE_LIGHTFORGED_DRAENEI-1)) | \
+	(1<<(RACE_VOIDELF-1)) | (1<<(RACE_DARK_IRON_DWARF-1)) | (1<<(RACE_HIGHELF-1)) | \
+	(1<<(RACE_VULPERA_A-1)) | (1<<(RACE_DRACTHYR_A-1)) | (1<<(RACE_KULTIRAN-1)))
 
 #define RACEMASK_HORDE RACEMASK_ALL_PLAYABLE & ~RACEMASK_ALLIANCE
 
@@ -126,28 +157,45 @@ enum Races
 // EnumUtils: DESCRIBE THIS
 enum Classes
 {
-    CLASS_NONE          = 0, // SKIP
-    CLASS_WARRIOR       = 1, // TITLE Warrior
-    CLASS_PALADIN       = 2, // TITLE Paladin
-    CLASS_HUNTER        = 3, // TITLE Hunter
-    CLASS_ROGUE         = 4, // TITLE Rogue
-    CLASS_PRIEST        = 5, // TITLE Priest
-    CLASS_DEATH_KNIGHT  = 6, // TITLE Death Knight
-    CLASS_SHAMAN        = 7, // TITLE Shaman
-    CLASS_MAGE          = 8, // TITLE Mage
-    CLASS_WARLOCK       = 9, // TITLE Warlock
-    //CLASS_UNK           = 10,
-    CLASS_DRUID         = 11 // TITLE Druid
+    CLASS_NONE = 0,						// SKIP
+    CLASS_WARRIOR = 1,					// TITLE Warrior
+    CLASS_PALADIN = 2,					// TITLE Paladin
+    CLASS_HUNTER = 3,					// TITLE Hunter
+    CLASS_ROGUE = 4,					// TITLE Rogue
+    CLASS_PRIEST = 5,					// TITLE Priest
+    CLASS_DEATH_KNIGHT = 6,				// TITLE Death Knight
+    CLASS_SHAMAN = 7,					// TITLE Shaman
+    CLASS_MAGE = 8,						// TITLE Mage
+    CLASS_WARLOCK = 9,					// TITLE Warlock
+    CLASS_BLOODMAGE = 10,				// TITLE Blood Mage
+    CLASS_DRUID = 11,					// TITLE Druid
+    CLASS_KNIGHT = 12,					// TITLE Knight
+    CLASS_DEMON_HUNTER = 13,			// TITLE Demon Hunter
+    CLASS_MONK = 14,					// TITLE Monk
+    CLASS_TAMER = 15,					// TITLE Tamer
+    CLASS_HERO = 16,					// TITLE Hero
+    CLASS_EVOKER = 17,					// TITLE Evoker
+    CLASS_NECROMANCER = 18,             // TITLE Necromancer
+    CLASS_VENOMANCER = 19,              // TITLE Venomancer
+    CLASS_PYROMANCER = 20,              // TITLE Pyromancer
+    CLASS_CHRONOMANCER = 21,			// TITLE Chonomancer
+    CLASS_GEOMANCER = 22,               // TITLE Geomancer
+    CLASS_CHAOSRAVAGER = 23             // TITLE Chaos Ravager
+    //CLASS_UNK = 24                    // TITLE UNK
 };
 
 // max+1 for player class
-#define MAX_CLASSES       12
+#define MAX_CLASSES       24
 
 #define CLASSMASK_ALL_PLAYABLE \
     ((1<<(CLASS_WARRIOR-1))|(1<<(CLASS_PALADIN-1))|(1<<(CLASS_HUNTER-1))| \
     (1<<(CLASS_ROGUE-1))  |(1<<(CLASS_PRIEST-1)) |(1<<(CLASS_SHAMAN-1))| \
     (1<<(CLASS_MAGE-1))   |(1<<(CLASS_WARLOCK-1))|(1<<(CLASS_DRUID-1)) | \
-    (1<<(CLASS_DEATH_KNIGHT-1)))
+    (1<<(CLASS_DEATH_KNIGHT-1)) | (1<<(CLASS_BLOODMAGE-1)) | (1<<(CLASS_KNIGHT-1)) | \
+    (1<<(CLASS_DEMON_HUNTER-1)) | (1<<(CLASS_MONK-1)) | (1<<(CLASS_TAMER-1)) | \
+    (1<<(CLASS_HERO-1)) | (1<<(CLASS_EVOKER-1)) | (1<<(CLASS_NECROMANCER-1)) | \
+    (1<<(CLASS_VENOMANCER-1)) | (1<<(CLASS_PYROMANCER-1)) | (1<<(CLASS_CHRONOMANCER-1)) | \
+    (1<<(CLASS_GEOMANCER-1)) | (1<<(CLASS_CHAOSRAVAGER-1)))
 
 #define MAX_TALENT_TREES 3
 

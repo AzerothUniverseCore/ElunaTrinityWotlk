@@ -34,6 +34,7 @@
 #include "Timer.h"
 #include "Transaction.h"
 #include "UniqueTrackablePtr.h"
+#include "DataMap.h"
 #include <bitset>
 #include <list>
 #include <memory>
@@ -619,6 +620,8 @@ class TC_GAME_API Map : public GridRefManager<NGridType>
         }
 
         virtual std::string GetDebugInfo() const;
+
+        DataMap CustomData;
 
     private:
         void LoadMapAndVMap(int gx, int gy);

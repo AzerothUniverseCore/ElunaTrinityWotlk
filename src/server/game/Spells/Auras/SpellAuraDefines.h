@@ -394,7 +394,9 @@ enum AuraType : uint32
     SPELL_AURA_PREVENT_RESURRECTION                         = 314,
     SPELL_AURA_UNDERWATER_WALKING                           = 315,
     SPELL_AURA_PERIODIC_HASTE                               = 316,
-    TOTAL_AURAS                                             = 317
+    SPELL_AURA_MOD_BONUS_ARMOR_PCT                          = 317,  // Affects bonus armor gain from all sources except base stats
+    SPELL_AURA_MOD_MINIMUM_SPEED_RATE                       = 318,
+    TOTAL_AURAS                                             = 319
 };
 
 enum AuraObjectType
