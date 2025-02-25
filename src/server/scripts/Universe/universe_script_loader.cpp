@@ -20,6 +20,11 @@
 /* ######### Custom ######## > */
 void AddSolocraftScripts();
 void AddSC_AutoBalance();
+void AddSC_premium_account();
+void AddSC_XpWeekend();
+void AddStartGuildScripts();
+void AddSC_universe_first_aid();
+void AddSC_azgath_gift_mount();
 /* ######################## > */
 
 /* ######### Spells ######## > */
@@ -40,6 +45,11 @@ void AddUniverseScripts()
 	AddSolocraftScripts();
 	// VAS AutoBalance
     AddSC_AutoBalance();
+	AddSC_premium_account();
+	AddSC_XpWeekend();
+	AddStartGuildScripts();
+	AddSC_universe_first_aid();
+	AddSC_azgath_gift_mount();
     /* ######################## > */
 	
 	/* ######### Spells ######## > */
